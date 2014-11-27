@@ -140,15 +140,17 @@ SAMPLE
 
   def test_find
     require 'ipaddress'
-    map = ["10.10.95.0/22"].map{|i| IPAddress.parse(i)}
+    map = [{:net => IPAddress.parse("10.10.95.0/22"), :result => "huhu" }]
     ip_addr = Linux::Ip::Addr.parse_from_lines(@ip_addr_show.lines)
-    ret = ip_addr.interfaces.find do |iface|
-      iface.ips.find do |ip|
-        ip = IPAddress.parse(ip)
-        ip.ipv4? && map.find {|net| net.include?(ip) }
+    ret = map.find do |matcher|
+      ip_addr.interfaces.find do |iface|
+        iface.ips.find do |ip|
+          ip = IPAddress.parse(ip)
+          ip.ipv4? && matcher[:net].include?(ip)
+        end
       end
     end
-    assert_equal "br995", ret.name
+    assert_equal "huhu", ret[:result]
   end
 
 end
