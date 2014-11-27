@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["meno.abels@adviser.com"]
   spec.summary       = %q{Parse the output of ip addr on a linux system}
   spec.description   = %q{Parse the output of ip addr on a linux system}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mabels/gem-linux-ip-addr"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
