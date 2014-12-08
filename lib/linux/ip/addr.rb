@@ -45,7 +45,7 @@ module Linux
               iface = Interface.new($1)
               ip_addr.interfaces << iface
             elsif iface
-              if line =~ /^\s*line\/ether\s+([a-f0-9:]+)\s+.*$/
+              if line =~ /^\s*link\/ether\s+([a-f0-9:]+)\s+.*$/
                 iface.mac_address($1)
               elsif line =~ /^\s*inet[6]*\s+([0-9a-f\:\.\/]+)\s+.*$/
                 iface.add_ip($1)
