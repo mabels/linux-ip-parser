@@ -5,19 +5,6 @@ module Linux
   module Ip
     module Route
 
-      class Interface
-        attr_accessor :mac_address
-        attr_reader :ips, :name
-        def initialize(name)
-          @name = name
-          @ips = []
-        end
-        def add_ip(ip)
-          @ips << ip
-        end
-      end
-
-
       class IpRoute
         attr_reader :interfaces, :routes
         def initialize
