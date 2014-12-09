@@ -97,7 +97,7 @@ module Linux
       end
 
       def self.parse
-        parse_from_lines(IO.popen("ip -4 route show").read.lines + IO.popen("ip -6 route show").read.lines)
+        parse_from_lines(IO.popen("ip -4 route show").read.lines.to_a + IO.popen("ip -6 route show").read.lines.to_a)
       end
 
     end
