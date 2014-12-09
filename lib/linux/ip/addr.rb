@@ -42,7 +42,7 @@ module Linux
         lines.each do |line|
             line = line.strip.chomp
             if line =~ /^\d+:\s+(\S+):\s+(.*)$/
-              iface = Interface.new($1)
+              iface = Interface.new($1.split('@')[0])
               ip_addr.interfaces << iface
             elsif iface
               if line =~ /^\s*link\/ether\s+([a-f0-9:]+)\s+.*$/
