@@ -153,5 +153,17 @@ SAMPLE
     assert_equal "huhu", ret[:result]
   end
 
+  def test_as_commands
+    ip_addr = Linux::Ip::Addr.parse_from_lines(@ip_addr_show.lines)
+    assert ip_addr.as_commands("add").include?("ip addr add fe80::d227:88ff:fed1:16d/64 dev p1p1.402")
+    assert ip_addr.as_commands("del").include?("ip addr del 10.1.0.11/16 dev br110")
+  end
+
+  def test_from_scratch
+    ip_addr = Linux::Ip::Addr::IpAddr.new
+    ip_addr.interfaces << Linux::Ip::Addr::Interface.new("eth0").add_ip("47.11.1.1/26")
+    assert ip_addr.as_commands("del").include?("ip addr del 47.11.1.1/26 dev eth0")
+  end
+
 end
 
