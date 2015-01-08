@@ -12,9 +12,25 @@ module Linux
           @routes = []
         end
 
+        def as_commands(direction = 'add')
+          @routes.map do |route|
+            route.as_commands(direction)
+          end.flatten.compact.join("\n")
+        end
+
+        def execute_add
+          system as_commands("add")
+        end
+        def execute_del
+          system as_commands("del")
+        end
+
         class Options < OpenStruct
           def initialize(options_str)
             super(options_str.split(/\s+/).inject({}) { |r, i| r[i] = true; r })
+          end
+          def as_ip
+            "" # there is some to do
           end
         end
 
@@ -26,8 +42,11 @@ module Linux
             @dev = dev
             @options = options
           end
+          def as_commands(direction)
+            "ip route #{direction} #{dst} via #{via} #{options.as_ip}"
+          end
         end
-        def add_via(dev, dst, via, options)
+        def add_via(dev, dst, via, options = "")
           @interfaces[dev] ||= []
           route = ViaRoute.new(dst, via, dev, Options.new(options))
           @interfaces[dev] << route
@@ -40,6 +59,9 @@ module Linux
             @dst = dst
             @dev = dev
             @options = options
+          end
+          def as_commands(direction)
+            "ip route #{direction} #{dst} dev #{dev} #{options.as_ip}"
           end
         end
         def add_dev(dev, dst, options)

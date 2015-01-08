@@ -104,5 +104,18 @@ SAMPLE
   def test_find
   end
 
+  def test_as_command
+    ip_route = Linux::Ip::Route.parse_from_lines(@ip_route_4_show.lines)
+    assert ip_route.as_commands("del").include?("ip route del 112.164.91.136/29 dev eth3.207")
+    ip_route = Linux::Ip::Route.parse_from_lines(@ip_route_6_show.lines)
+    assert ip_route.as_commands("add").include?("ip route add 3c04:3a60:0:fe82::/64 via 3c04:3a60:0:2::21")
+  end
+
+  def test_from_scratch
+    ip_route = Linux::Ip::Route::IpRoute.new
+    ip_route.add_via("eth0", "0.0.0.0/0", "47.11.1.1")
+    assert ip_route.as_commands("add").include?("ip route add 0.0.0.0/0 via 47.11.1.1")
+  end
+
 end
 

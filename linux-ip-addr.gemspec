@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'linux/ip/addr/version'
+require 'linux/ip/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "linux-ip-addr"
-  spec.version       = Linux::Ip::Addr::VERSION
+  spec.version       = Linux::Ip::VERSION
   spec.authors       = ["Meno Abels"]
   spec.email         = ["meno.abels@adviser.com"]
   spec.summary       = %q{Parse the output of ip addr on a linux system}
