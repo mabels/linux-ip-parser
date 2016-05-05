@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'test/unit'
 
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-puts `pwd`
+
+$LOAD_PATH.unshift(File.join(Dir.pwd, File.dirname(__FILE__)))
+$LOAD_PATH.unshift(File.join(Dir.pwd, File.dirname(File.dirname(__FILE__)), 'lib'))
 puts "----"
 puts $LOAD_PATH
 require 'linux/ip/addr'

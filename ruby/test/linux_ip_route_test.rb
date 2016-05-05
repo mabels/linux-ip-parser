@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'test/unit'
 
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.join(Dir.pwd, File.dirname(__FILE__)))
+$LOAD_PATH.unshift(File.join(Dir.pwd, File.dirname(File.dirname(__FILE__)), 'lib'))
 require 'linux/ip/route'
 
 class LinuxIpRouteTest < Test::Unit::TestCase

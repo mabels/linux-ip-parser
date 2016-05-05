@@ -8,8 +8,8 @@ rust:
 #    - sudo apt-get install -y ruby
 
 script: 
-    - (cd ruby && ruby test/linux_ip_addr_test.rb)
-    - (cd ruby && ruby test/linux_ip_route_test.rb)
+    - (cd ruby && rvm ruby-2.0.0-p648-clang && ruby test/linux_ip_addr_test.rb)
+    - (cd ruby && rvm ruby-2.0.0-p648-clang && ruby test/linux_ip_route_test.rb)
     - (cd rust && cargo build --verbose)
     - (cd rust && cargo test --verbose)
 
