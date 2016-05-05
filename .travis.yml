@@ -1,6 +1,14 @@
-language: ruby
+language: rust
+
+rust:
+  - 1.8.0
+
+install:
+    - apt-get install ruby
 
 script: 
-    - ruby ruby/test/linux_ip_addr_test.rb
-    - ruby ruby/test/linux_ip_route_test.rb
+    - cd ruby && ruby ruby/test/linux_ip_addr_test.rb
+    - cd ruby && ruby ruby/test/linux_ip_route_test.rb
+    - cd rust && cargo build --verbose
+    - cd rust && cargo test --verbose
 
