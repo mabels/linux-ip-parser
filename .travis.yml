@@ -8,8 +8,8 @@ before_install:
     - sudo apt-get install -y ruby
 
 script: 
-    - cd ruby && ruby ruby/test/linux_ip_addr_test.rb
-    - cd ruby && ruby ruby/test/linux_ip_route_test.rb
-    - cd rust && cargo build --verbose
-    - cd rust && cargo test --verbose
+    - (cd ruby && ruby test/linux_ip_addr_test.rb)
+    - (cd ruby && ruby test/linux_ip_route_test.rb)
+    - (cd rust && cargo build --verbose)
+    - (cd rust && cargo test --verbose)
 
