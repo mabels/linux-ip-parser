@@ -6,6 +6,9 @@ rust:
 #before_install:
 #    - sudo apt-get -qq update
 #    - sudo apt-get install -y ruby
+install:
+    - rvm use ruby-2.0.0-p598
+    - gem install construqt-ipaddress
 
 script: 
     - rvm use ruby-2.0.0-p598 
