@@ -3,6 +3,9 @@ require 'test/unit'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+puts `pwd`
+puts "----"
+puts $LOAD_PATH
 require 'linux/ip/addr'
 
 class LinuxIpAddrTest < Test::Unit::TestCase
