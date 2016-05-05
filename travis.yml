@@ -1,1 +1,6 @@
-script: "./tester.sh"
+language: ruby
+
+script: 
+    - ruby ruby/test/linux_ip_addr_test.rb
+    - ruby ruby/test/linux_ip_route_test.rb
+
