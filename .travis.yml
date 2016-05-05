@@ -8,8 +8,7 @@ rust:
 #    - sudo apt-get install -y ruby
 
 script: 
-    - rvm help
-    - rvm list
+    - rvm use ruby-2.0.0-p598 
     - (cd ruby && ruby test/linux_ip_addr_test.rb)
     - (cd ruby && ruby test/linux_ip_route_test.rb)
     - (cd rust && cargo build --verbose)
