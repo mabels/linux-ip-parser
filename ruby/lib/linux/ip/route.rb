@@ -1,4 +1,4 @@
-require "linux/ip/addr/version"
+require_relative "version"
 require 'ostruct'
 
 module Linux

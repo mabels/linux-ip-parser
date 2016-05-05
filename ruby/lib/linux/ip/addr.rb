@@ -1,4 +1,4 @@
-require "linux/ip/addr/version"
+require_relative "version.rb"
 
 module Linux
   module Ip
