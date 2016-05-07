@@ -2,7 +2,6 @@
 description = "parses linux ip tools output and writes them back"
 repository = "https://github.com/mabels/linux-ip-parser.git"
 keywords = ["ip", "network", "linux"]
-license = "MIT"
 license-file = "../LICENSE.txt"
 name = "linux_ip"
 version = "0.1.0"
