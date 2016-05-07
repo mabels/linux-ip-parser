@@ -1,6 +1,14 @@
 # Linux::Ip::Addr
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/mabels/gem-linux-ip-addr.svg?branch=master)](https://travis-ci.org/mabels/gem-linux-ip-addr)
+
+This gem parses the output of the linux ip tool
+
+It allows to generate ip commands from the parse output
+to regenerate.
+
+It supports ruby and rust
+
 
 ## Installation
 

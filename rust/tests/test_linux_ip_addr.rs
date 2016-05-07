@@ -1,5 +1,5 @@
 
-extern crate linux_ip_addr;
+extern crate linux_ip;
 
 //use std::io::prelude::*;
 
@@ -17,23 +17,23 @@ mod tests {
     }
     #[test]
     fn test_me() {
-      let ip_addr = ::linux_ip_addr::parse_from_string(&ip_addr_show());
+      let ip_addr = ::linux_ip::addr::parse_from_string(&ip_addr_show());
       assert_eq!(26, ip_addr.length());
       assert_eq!("br995", ip_addr.find("br995").unwrap().name);
       assert_eq!(vec!["10.10.95.11/22", "10.10.95.12/22", "fe80::d227:88ff:fed1:16d/64"], ip_addr.find("br995").unwrap().ips);
     }
 #[test]
    fn test_as_commands() {
-    let ip_addr = ::linux_ip_addr::parse_from_string(&ip_addr_show());
+    let ip_addr = ::linux_ip::addr::parse_from_string(&ip_addr_show());
     for i in ip_addr.as_commands("add") {
-        println!("cmd:{}", &i)
+        println!("cmd:{}", &i);
     }
     assert!(ip_addr.as_commands("add").iter().find(|s| *s == "ip addr add fe80::d227:88ff:fed1:16d/64 dev p1p1.402").is_some());
     assert!(ip_addr.as_commands("del").iter().find(|s| *s == "ip addr del 10.1.0.11/16 dev br110").is_some());
   }
 #[test]
   fn test_from_scratch() {
-    let mut ip_addr = ::linux_ip_addr::IpAddr {
+    let mut ip_addr = ::linux_ip::addr::IpAddr {
         interfaces: Vec::new()
     };
     let idx = ip_addr.add_interface(&"eth0".to_string());

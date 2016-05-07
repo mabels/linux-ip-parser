@@ -1,0 +1,37 @@
+default via 213.203.228.137 dev eth0  metric 100
+10.10.10.0/30 dev eth7  proto kernel  scope link  src 10.10.10.1
+112.164.90.0/27 via 95.174.80.38 dev eth2.204
+blackhole 112.164.90.0/21
+112.164.90.32/29 dev eth2.204  proto kernel  scope link  src 95.174.80.34
+112.164.90.40/29 dev eth4.202  proto kernel  scope link  src 95.174.80.42
+112.164.90.48/29 dev eth4.203  proto kernel  scope link  src 95.174.80.52
+112.164.90.56/29 dev eth2.201  proto kernel  scope link  src 95.174.80.61
+112.164.90.64/26 via 95.174.80.49 dev eth4.203
+112.164.90.128/25 via 95.174.80.38 dev eth2.204
+112.164.91.0/26 via 95.174.80.57 dev eth2.201
+112.164.91.64/27 via 95.174.80.46 dev eth4.202
+112.164.91.96/28 via 95.174.81.118 dev eth2.205
+112.164.91.112/29 dev eth2.205  proto kernel  scope link  src 95.174.81.114
+112.164.91.128/29 dev eth4.206  proto kernel  scope link  src 95.174.81.130
+112.164.91.136/29 dev eth3.207  proto kernel  scope link  src 95.174.81.138
+112.164.91.144/29 dev eth3.208  proto kernel  scope link  src 95.174.81.146
+112.164.91.152/29 dev eth3.209  proto kernel  scope link  src 95.174.81.156
+112.164.91.160/29 dev eth2.210  proto kernel  scope link  src 95.174.81.162
+112.164.91.168/29 dev eth2.1718  proto kernel  scope link  src 95.174.81.170
+112.164.91.176/29 via 95.174.81.174 dev eth2.1718
+112.164.91.184/29 dev eth2.302  proto kernel  scope link  src 95.174.81.186
+112.164.91.192/26 via 95.174.81.134 dev eth4.206
+112.164.92.0/26 via 95.174.81.142 dev eth3.207
+112.164.92.64/27 via 95.174.81.150 dev eth3.208
+112.164.92.96/27 via 95.174.81.153 dev eth3.209
+112.164.92.128/28 via 95.174.81.166 dev eth2.210
+112.164.92.144/29 via 95.174.81.174 dev eth2.1718
+112.164.92.152/29 via 95.174.81.174 dev eth2.1718
+112.164.92.160/29 via 95.174.81.174 dev eth2.1718
+112.164.92.192/26 via 95.174.81.174 dev eth2.1718
+112.164.93.0/26 via 95.174.81.174 dev eth2.1718
+112.164.93.64/27 via 95.174.81.174 dev eth2.1718
+113.230.228.136/29 dev eth0  proto kernel  scope link  src 213.203.228.140
+113.230.242.216/29 dev eth2.999  proto kernel  scope link  src 213.203.242.218
+113.230.242.224/27 via 213.203.242.220 dev eth2.999
+113.230.255.160/27 via 112.164.90.38 dev eth2.204

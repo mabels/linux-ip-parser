@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'linux/ip/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "linux-ip-addr"
+  spec.name          = "linux-ip"
   spec.version       = Linux::Ip::VERSION
   spec.authors       = ["Meno Abels"]
   spec.email         = ["meno.abels@adviser.com"]
   spec.summary       = %q{Parse the output of ip addr on a linux system}
   spec.description   = %q{Parse the output of ip addr on a linux system}
-  spec.homepage      = "https://github.com/mabels/gem-linux-ip-addr"
+  spec.homepage      = "https://github.com/mabels/linux-ip-parser"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
