@@ -1,6 +1,6 @@
 # Linux::Ip::Addr
 
-[![Build Status](https://travis-ci.org/mabels/gem-linux-ip-addr.svg?branch=master)](https://travis-ci.org/mabels/gem-linux-ip-addr)
+[![Build Status](https://travis-ci.org/mabels/linux-ip-parser.svg?branch=master)](https://travis-ci.org/mabels/linux-ip-parser)
 
 This gem parses the output of the linux ip tool
 
