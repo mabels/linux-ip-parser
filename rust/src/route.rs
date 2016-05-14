@@ -1,11 +1,13 @@
 
-// mod Route {
+
 use std::collections::HashSet;
 use std::collections::HashMap;
 use regex::Regex;
 use std::process::Command;
 use std::rc::Rc;
 
+static CT_VIA_M: &'static str =
+    r"^([0-9a-fA-F\.:/]+|default)\s+via\s+([a-z0-9\.:]+)\s+dev\s+([a-z0-9\.]+)\s*(.*)$";
 
 pub struct Options {
     pub options: HashSet<String>,
@@ -120,9 +122,10 @@ impl IpRoute {
 pub fn parse_from_string(lines: &str) -> IpRoute {
     let re_crnl = Regex::new(r"\s*[\n\r]+\s*").unwrap();
     let re_dev_m = Regex::new(r"^([0-9a-fA-F\.:/]+)\s+dev\s+([a-z0-9\.]+)\s*(.*)$").unwrap();
-    let re_via_m = Regex::new(r"^([0-9a-fA-F\.:/]+|default)\s+via\s+([a-z0-9\.:]+)\s+dev\s+([a-z0-9\.]+)\s*(.*)$").unwrap();
+    let re_via_m = Regex::new(CT_VIA_M).unwrap();
     let re_direct_m = Regex::new(r"^(blackhole)\s+([0-9a-fA-F\.:/]+)$").unwrap();
-    let re_unreachable_m = Regex::new(r"^(unreachable)\s+([0-9a-fA-F\.:/]+)\s+dev\s+([a-z0-9\.]+)\s+(.*)$").unwrap();
+    let re_unreachable_m =
+        Regex::new(r"^(unreachable)\s+([0-9a-fA-F\.:/]+)\s+dev\s+([a-z0-9\.]+)\s+(.*)$").unwrap();
     let mut ip_route = IpRoute {
         routes: Vec::new(),
         interfaces: HashMap::new(),
@@ -183,4 +186,3 @@ pub fn parse() -> IpRoute {
                                      &String::from_utf8_lossy(&out_6.stdout).into_owned())
         .as_str());
 }
-// }
